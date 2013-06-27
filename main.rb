@@ -51,6 +51,10 @@ get '/tweets/?:username?' do
   erb :tweets
 end
 
+get '/' do
+  @my_tweets = Twitter.user_timeline('@BarRefaeli')
+  binding.pry
+end
 
 
 
