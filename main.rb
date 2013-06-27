@@ -48,9 +48,9 @@ get '/tweets/?:username?' do
   # The tweets are stored in an Array called @my_tweets
   @my_tweets = Twitter.user_timeline(@username)
   @user = Twitter.user(@username)
-
   erb :tweets
 end
+
 
 
 

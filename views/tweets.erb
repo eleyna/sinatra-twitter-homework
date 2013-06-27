@@ -9,6 +9,9 @@
   <% @my_tweets.each do |tweet| %>
     <li><p><%= tweet[:text] %></p></li>
         <p><a href = "http://twitter.com/username/status/<%= tweet[:id] %>">Twitter</a></p>
+    <% if @my_tweets[0][:favorited] %>
+      <p><h3>FAVORITED!!!!!!!!!!</h3></p>
+    <% end %>
     <% if !tweet[:media].empty? %>
       <img src = "<%= tweet[:media][0][:media_url] %>"/>
     <% end %>
