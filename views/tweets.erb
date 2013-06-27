@@ -1,0 +1,28 @@
+<% if @username %>
+  <h1>Name: <%= @user[:name] %></h1>
+  <h2>Location: <%= @user[:location] %></h2>
+  <h2>Friends Count: <%= @user[:friends_count] %></h2>
+  <h2>Time Zone: <%= @user[:time_zone] %></h2>
+  <h2>Language: <%= @user[:lang] %></h2>
+
+  <ol>
+  <% @my_tweets.each do |tweet| %>
+    <li><p><%= tweet[:text] %></p></li>
+        <p><a href = "http://twitter.com/username/status/<%= tweet[:id] %>">Twitter</a></p>
+    <% if !tweet[:media].empty? %>
+      <img src = "<%= tweet[:media][0][:media_url] %>"/>
+    <% end %>
+  <% end %>
+  </ol>
+
+<% else %>
+  <h1>Enter a user to see their tweets:</h1>
+  <form action='/tweets' method='get'>
+    <input type="text" name="username">
+    <button>Get tweets</button>
+  </form>
+<% end %>
+
+
+
+
