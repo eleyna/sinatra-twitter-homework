@@ -45,7 +45,7 @@ task :save_tweets, :username do |t, args|
   @username =  args[:username]
   # Put your twitter code here to dump tweets to CSV file
   tweet_file = File.new('tibbon_tweets.csv', 'a+')
-  100.times do
+  50.times do
     tibbon_tweets = Twitter.user_timeline(@username)
     tibbon_tweets.each do |tweet|
       tweet_file.puts tweet[:text] + ","
@@ -59,7 +59,7 @@ task :save_favorite_tweets, :username do |t, args|
   @username =  args[:username]
   # Put your twitter code here to dump tweets to CSV file
   tweet_file = File.new('tibbon_favorite_tweets.csv', 'a+')
-  100.times do
+  50.times do
     tibbon_tweets = Twitter.user_timeline(@username)
     tibbon_tweets.each do |tweet|
       if tweet[:favorited]
